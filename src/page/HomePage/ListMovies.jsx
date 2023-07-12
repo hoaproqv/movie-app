@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 const imageUrl = process.env.REACT_APP_IMAGE_URL;
 
 function ListMovies({ header, listType }) {
@@ -8,13 +9,13 @@ function ListMovies({ header, listType }) {
       <div className="list-movies">
         {listType?.map((movie, index) => (
           <div className="item" key={index}>
-            <a href={`/watch/${movie.id}`}>
+            <Link to={`/watch/${movie.id}`}>
               <img
                 className="item__poster"
                 src={`${imageUrl}${movie["poster_path"]}`}
                 alt=""
               />
-            </a>
+            </Link>
             <div className="item__movie-controls">
               <a href={`/watch/${movie.id}`} className="item__play">
                 <i className="fal fa-play"></i>
