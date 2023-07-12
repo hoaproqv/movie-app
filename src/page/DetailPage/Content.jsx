@@ -1,8 +1,8 @@
 import React from "react";
 import Circle from "./Circle";
+const imageUrl = process.env.REACT_APP_IMAGE_URL;
 
 function Content({ data }) {
-  const imageUrl = process.env.REACT_APP_IMAGE_URL;
   const bgImageUrl = data?.["backdrop_path"];
   const posterUrl = data?.["poster_path"];
   const genres = data?.genres.map((item) => item.name);
