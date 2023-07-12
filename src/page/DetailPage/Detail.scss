@@ -1,0 +1,57 @@
+.content {
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  &__detail {
+    position: absolute;
+    z-index: 1;
+    margin-left: 100px;
+    display: flex;
+    max-width: 1000px;
+  }
+  &__poster {
+    width: 300px;
+    height: 450px;
+    margin-right: 40px;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-weight: 600;
+    font-size: 18px;
+    gap: 20px;
+  }
+  &__description::first-letter {
+    font-size: 30px;
+  }
+  &__genres::before,
+  &__genres::after {
+    content: "●";
+  }
+  &__rate {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  &__company {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  &__logo-cp {
+    width: 150px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+  }
+}
