@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import LoginPage from "./page/LoginPage";
 import HomePage from "./page/HomePage";
 import DetailPage from "./page/DetailPage";
