@@ -6,10 +6,42 @@
 
 .list-movies {
   display: flex;
-  overflow-x: hidden;
+  overflow-x: scroll;
   gap: 30px;
   margin-left: 10px;
   overflow-y: hidden;
+  position: relative;
+  scroll-behavior: smooth;
+  &__btn {
+    width: 30px;
+    background-color: transparent;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1;
+    transition: all 0.5s;
+    color: transparent;
+    font-size: 25px;
+  }
+  &__btn:hover {
+    background-color: rgba(95, 95, 95, 0.732);
+    color: #fff;
+  }
+}
+#left {
+  left: 0;
+}
+
+#right {
+  top: 0;
+  right: 2px;
+}
+
+.list-movies::-webkit-scrollbar {
+  display: none;
 }
 
 .item {
@@ -53,4 +85,8 @@
     transition: all 0.3s;
     cursor: pointer;
   }
+}
+
+.border {
+  position: relative;
 }

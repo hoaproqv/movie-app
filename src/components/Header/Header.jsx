@@ -81,13 +81,14 @@ function Header() {
                   alt=""
                   style={{ borderRadius: "3px" }}
                 />
-                <a
+                <Link
                   className="listSearchMovie__movie"
-                  href={`${host}/watch/${movie.id}`}
+                  to={`${host}/watch/${movie.id}`}
+                  onClick={() => setSearchText("")}
                 >
                   <p className="title">{movie.title}</p>
                   <p className="date">Release date: {movie["release_date"]}</p>
-                </a>
+                </Link>
               </div>
             ))}
           </div>

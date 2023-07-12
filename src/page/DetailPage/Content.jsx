@@ -44,8 +44,8 @@ function Content({ data }) {
             <div className="content__company">
               <p style={{ fontSize: "22px" }}>{nameCompany}</p>
               <img
-                src={`${imageUrl}${logoCompany}`}
-                alt=""
+                src={logoCompany ? `${imageUrl}${logoCompany}` : ""}
+                alt="Logo Company"
                 className="content__logo-cp"
               />
             </div>
