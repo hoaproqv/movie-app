@@ -54,7 +54,7 @@ function Header() {
               <Link to="#">New & Popular</Link>
             </li>
             <li>
-              <Link to="#">My List</Link>
+              <Link to={`${host}/watch/my_list`}>My List</Link>
             </li>
           </ul>
         </nav>

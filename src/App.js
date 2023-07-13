@@ -6,6 +6,7 @@ import DetailPage from "./page/DetailPage";
 import useGenresMovie from "./hook/useGenresMovie";
 import useGenresTv from "./hook/useGenresTv";
 import GenresPage from "./page/GenresPage/GenresPage";
+import MyList from "./page/MyList";
 
 export const ContextValues = createContext();
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/watch" element={<HomePage />} />
         <Route path="/watch/:id" element={<DetailPage />} />
         <Route path="/watch/genres/:genres" element={<GenresPage />} />
+        <Route path="/watch/my_list" element={<MyList />} />
       </Routes>
     </ContextValues.Provider>
   );

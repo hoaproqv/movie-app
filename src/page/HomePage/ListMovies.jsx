@@ -22,6 +22,23 @@ function ListMovies({ header, listType }) {
     }
   };
 
+  const saveMyList = (event) => {
+    const jsonData = event.target.getAttribute("data");
+    const data = JSON.parse(jsonData);
+    let saveMovieList = localStorage.getItem("myList")
+      ? JSON.parse(localStorage.getItem("myList"))
+      : [];
+
+    if (saveMovieList.length > 0) {
+      const found = saveMovieList.find((item) => item.id === data.id);
+      if (!found) {
+        saveMovieList.push(data);
+      }
+    } else {
+      saveMovieList.push(data);
+    }
+    localStorage.setItem("myList", JSON.stringify(saveMovieList));
+  };
   return (
     <div>
       <p className="header">{header}</p>
@@ -48,7 +65,13 @@ function ListMovies({ header, listType }) {
                 <Link to={`${host}/watch/${movie.id}`} className="item__play">
                   <i className="fal fa-play"></i>
                 </Link>
-                <i className="fal fa-heart"></i>
+                <i
+                  className="fal fa-heart"
+                  onClick={(event) => {
+                    saveMyList(event);
+                  }}
+                  data={`{"id": "${movie.id}","poster_path": "${movie["poster_path"]}","title": "${movie.title}","overview": "${movie.overview}","backdrop_path":"${movie["backdrop_path"]}"}`}
+                ></i>
                 <i className="fal fa-download"></i>
               </div>
             </div>

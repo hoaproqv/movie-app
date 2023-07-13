@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../components/Header/Header";
 import { useNavigate, useParams } from "react-router-dom";
-import Genres from "./Genres";
+import ListFilter from "./ListFilter";
 import useGenresMovie from "../../hook/useGenresMovie";
 import Banner from "../HomePage/Banner";
 import useGenresResult from "../../hook/useGenresResult";
@@ -26,7 +26,7 @@ function GenresPage() {
     <div>
       <Header />
       <Banner listMovie={genresListResult} />
-      <Genres genres={genres} genresList={genresListResult} />
+      <ListFilter title={genres} listFilter={genresListResult} />
       <Footer />
     </div>
   );

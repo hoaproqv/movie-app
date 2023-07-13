@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 const imageUrl = process.env.REACT_APP_IMAGE_URL;
 const host = window.location.origin;
 
-function Genres({ genres, genresList }) {
+function ListFilter({ title, listFilter }) {
   return (
     <div className="movie-genres">
-      <p className="movie-genres__header">{genres}</p>
+      <p className="movie-genres__header">{title}</p>
       <div className="movie-genres__list-movies">
-        {genresList?.map((movie, index) => (
+        {listFilter?.map((movie, index) => (
           <div className="item genres-movie" key={index}>
             <Link to={`${host}/watch/${movie.id}`}>
               <img
@@ -23,7 +23,7 @@ function Genres({ genres, genresList }) {
                 <i className="fal fa-play"></i>
               </Link>
               <i className="fal fa-heart"></i>
-              <i className="fal fa-download"></i>
+              <i className="fal fa-download" data={`${movie.id}`}></i>
             </div>
           </div>
         ))}
@@ -32,4 +32,4 @@ function Genres({ genres, genresList }) {
   );
 }
 
-export default Genres;
+export default ListFilter;
