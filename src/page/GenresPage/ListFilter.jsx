@@ -1,6 +1,7 @@
 import React from "react";
 import "./Genres.scss";
 import { Link } from "react-router-dom";
+import { saveMyList } from "../../function/saveMyList";
 const imageUrl = process.env.REACT_APP_IMAGE_URL;
 const host = window.location.origin;
 
@@ -22,7 +23,13 @@ function ListFilter({ title, listFilter }) {
               <Link to={`${host}/watch/${movie.id}`} className="item__play">
                 <i className="fal fa-play"></i>
               </Link>
-              <i className="fal fa-heart"></i>
+              <i
+                className="fal fa-heart"
+                onClick={(event) => {
+                  saveMyList(event);
+                }}
+                data={`{"id": "${movie.id}","poster_path": "${movie["poster_path"]}","title": "${movie.title}","overview": "${movie.overview}","backdrop_path":"${movie["backdrop_path"]}"}`}
+              ></i>
               <i className="fal fa-download" data={`${movie.id}`}></i>
             </div>
           </div>

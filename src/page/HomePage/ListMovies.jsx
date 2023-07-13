@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { saveMyList } from "../../function/saveMyList";
 const imageUrl = process.env.REACT_APP_IMAGE_URL;
 const host = window.location.origin;
 
@@ -22,23 +23,6 @@ function ListMovies({ header, listType }) {
     }
   };
 
-  const saveMyList = (event) => {
-    const jsonData = event.target.getAttribute("data");
-    const data = JSON.parse(jsonData);
-    let saveMovieList = localStorage.getItem("myList")
-      ? JSON.parse(localStorage.getItem("myList"))
-      : [];
-
-    if (saveMovieList.length > 0) {
-      const found = saveMovieList.find((item) => item.id === data.id);
-      if (!found) {
-        saveMovieList.push(data);
-      }
-    } else {
-      saveMovieList.push(data);
-    }
-    localStorage.setItem("myList", JSON.stringify(saveMovieList));
-  };
   return (
     <div>
       <p className="header">{header}</p>
