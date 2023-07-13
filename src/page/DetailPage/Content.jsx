@@ -1,5 +1,6 @@
 import React from "react";
 import Circle from "./Circle";
+import { saveMyList } from "../../function/saveMyList";
 const imageUrl = process.env.REACT_APP_IMAGE_URL;
 
 function Content({ data }) {
@@ -40,6 +41,15 @@ function Content({ data }) {
             <div className="content__rate">
               <span>Rating:</span>
               <Circle point={point} />
+              <div className="item content__favorite-detail">
+                <i
+                  className="fal fa-heart"
+                  onClick={(event) => {
+                    saveMyList(event);
+                  }}
+                  data={`{"id": "${data?.id}","poster_path": "${data?.["poster_path"]}","title": "${data?.title}","overview": "${data?.overview}","backdrop_path":"${data?.["backdrop_path"]}"}`}
+                ></i>
+              </div>
             </div>
             <div className="content__company">
               <p style={{ fontSize: "22px" }}>{nameCompany}</p>
